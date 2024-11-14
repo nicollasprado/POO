@@ -11,28 +11,40 @@ import java.util.Scanner;
 
 public class Q3 {
 
-    public static char shiftChar(char letter, int shiftAmount){
-        int asciiShifted = letter + shiftAmount;
-        if(asciiShifted > 90){
-            asciiShifted -= 26;
+    public static String charsetToString(char[] decodedCharset){
+        String stringDecoded = "";
+        for(int i=0; i < decodedCharset.length; i++){
+            stringDecoded += decodedCharset[i];
         }
-        char charShifted = (char)asciiShifted;
-        return charShifted;
+        return stringDecoded;
+    }
+
+    public static char[] shiftChar(char[] codedCharset, int shiftAmount){
+        char[] decodedCharset = new char[codedCharset.length];
+        for(int i=0; i < codedCharset.length; i++) {
+            int asciiShifted = codedCharset[i] + shiftAmount;
+            if (asciiShifted > 90) {
+                asciiShifted -= 26;
+            }
+            decodedCharset[i] = (char) asciiShifted;
+        }
+        return decodedCharset;
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int qtTests = input.nextInt();
-        char[] decodedCharset = new char[qtTests];
         for(int i=0; i < qtTests; i++){
-            String rawLetter = input.next();
+            String rawStr = input.next();
+            rawStr = rawStr.toUpperCase();
             int shiftAmount = input.nextInt();
-            char letterChar = rawLetter.charAt(0);
-            decodedCharset[i] = shiftChar(letterChar, shiftAmount);
-        }
-
-        for(int j=0; j < qtTests; j++){
-            System.out.print(decodedCharset[j]);
+            char[] codedCharset = new char[rawStr.length()];
+            for(int z=0; z < rawStr.length(); z++){
+                codedCharset[z] = rawStr.charAt(z);
+            }
+            char[] decodedCharset = shiftChar(codedCharset, shiftAmount);
+            String decodedString = charsetToString(decodedCharset);
+            System.out.println(decodedString);
         }
     }
 }
