@@ -1,24 +1,14 @@
-import java.io.IOException;
-
-public class IP {
+public class SubnetMask {
     private String binaryEquivalent;
-    private String ipAddress;
     private String subnetMask;
 
-    public IP(String ipAddres){
-        this.ipAddress = ipAddres;
+    public SubnetMask(String subnetMask){
+        this.subnetMask = subnetMask;
         generateBinaryEquivalent();
     }
 
-    public IP(String ipAddress, String subnetMask){
-        this.ipAddress = ipAddress;
-        this.subnetMask = subnetMask;
-    }
-
-
-
-    public void generateBinaryEquivalent() throws IllegalArgumentException{
-        String ipStr = this.ipAddress;
+    public void generateBinaryEquivalent(){
+        String ipStr = this.subnetMask;
         ipStr += ".";
         String[] binaryString = new String[4];
         int binaryStringIndex = 0;
@@ -37,9 +27,6 @@ public class IP {
             }else{
                 if (!parsing) {
                     numBlockInt = Integer.parseInt(numBlock);
-                    if(numBlockInt > 255){
-                        throw new IllegalArgumentException("Uma parte do IP excedeu 255!");
-                    }
                 }
                 if (iteredBits < 8 && numBlockInt == 0) {
                     binaryStrBuffer = "0" + binaryStrBuffer;
@@ -58,8 +45,8 @@ public class IP {
                     numBlockInt /= 2;
                 }
                 iteredBits++;
-                }
             }
+        }
         for(int i=0; i < 4; i++){
             if(i == 0){
                 this.binaryEquivalent = binaryString[0] + ".";
@@ -72,18 +59,12 @@ public class IP {
     }
 
 
-    // Getters and Setters
-
     public String getBinaryEquivalent() {
         return binaryEquivalent;
     }
 
-    public String getIpAdress() {
-        return ipAddress;
-    }
-
-    public void setIpAdress(String ipAddress) {
-        this.ipAddress = ipAddress;
+    public void setBinaryEquivalent(String binaryEquivalent) {
+        this.binaryEquivalent = binaryEquivalent;
     }
 
     public String getSubnetMask() {
