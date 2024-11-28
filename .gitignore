@@ -1,2 +1,7 @@
-/Faculdade/out
-/Faculdade/.idea
+### IntelliJ IDEA ###
+out/
+!**/src/**/out/
+!**/src/**/out/
+.idea
+!**/src/.idea
+!**/src/**/.idea
