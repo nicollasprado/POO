@@ -1,4 +1,4 @@
-/*
+package Prova1;/*
 * Reescreva o programa a seguir usando ‘if’ ao invés de ‘switch’.Coloque um comentário com o texto “TADS”.
 
 int dia = 3;
