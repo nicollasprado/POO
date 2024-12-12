@@ -5,30 +5,18 @@ import java.util.List;
 
 public class Construtora {
     private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-    private List<Engenheiro> engenheiros = new ArrayList<Engenheiro>();
-    private List<Motorista> motoristas = new ArrayList<Motorista>();
 
 
     public Construtora(){}
 
-    public Construtora(List<Funcionario> funcionarios, List<Engenheiro> engenheiros, List<Motorista> motoristas){
+    public Construtora(List<Funcionario> funcionarios){
         this.funcionarios = funcionarios;
-        this.engenheiros = engenheiros;
-        this.motoristas = motoristas;
     }
 
 
 
     public void addFuncionario(Funcionario funcionario){
         funcionarios.add(funcionario);
-    }
-
-    public void addFuncionario(Engenheiro engenheiro){
-        engenheiros.add(engenheiro);
-    }
-
-    public void addFuncionario(Motorista motorista){
-        motoristas.add(motorista);
     }
 
 
@@ -38,10 +26,22 @@ public class Construtora {
     }
 
     public List<Engenheiro> getEngenheiros(){
+        List<Engenheiro> engenheiros = new ArrayList<Engenheiro>();
+        for(int i = 0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i) instanceof Engenheiro){
+                engenheiros.add((Engenheiro) funcionarios.get(i));
+            }
+        }
         return engenheiros;
     }
 
     public List<Motorista> getMotoristas(){
+        List<Motorista> motoristas = new ArrayList<Motorista>();
+        for(int i = 0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i) instanceof Motorista){
+                motoristas.add((Motorista) funcionarios.get(i));
+            }
+        }
         return motoristas;
     }
 }
