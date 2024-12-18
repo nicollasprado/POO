@@ -10,8 +10,7 @@ public class FreteExpresso extends Frete{
 
     @Override
     public double getValorFrete(){
-        double freteComum = ((0.01 * getPeso()) * getDistancia());
-        return ((freteComum * 2) + (seguro * 0.01));
+        return (super.getValorFrete() + (seguro * 0.01));
     }
 
     @Override
