@@ -16,6 +16,6 @@ public class FreteExpresso extends Frete{
 
     @Override
     public String toString(){
-        return ("Distancia: " + getDistancia() + " Peso: " + getPeso() + " Seguro: " + seguro + " Valor do Frete: " + getValorFrete());
+        return (super.toString() + " Seguro: " + seguro + " Valor do Frete: " + getValorFrete());
     }
 }
