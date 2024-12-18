@@ -1,16 +1,35 @@
 package HerancaPolimorfismo.Figuras;
 
 public class Quadrado extends Retangulo {
-    private double lado;
 
-    // Construtor
     public Quadrado(double lado) {
         super(lado, lado); // Define base e altura como o mesmo valor de lado
-        this.lado = lado;
+    }
+
+
+    public double getLado(){
+        return getBase();
+    }
+
+
+    public void setLado(double lado){
+        setBase(lado);
+        setAltura(lado);
     }
 
     @Override
+    public void setAltura(double altura){
+        setLado(altura);
+    }
+
+    @Override
+    public void setBase(double base){
+        setLado(base);
+    }
+
+
+    @Override
     public String toString() {
-        return ("lado: " + lado);
+        return ("lado: " + getBase());
     }
 }

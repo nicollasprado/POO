@@ -36,4 +36,13 @@ public class Retangulo{
     public double getAltura() {
         return altura;
     }
+
+    // Setters
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
 }
